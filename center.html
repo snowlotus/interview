@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>不定宽高内容上下左右垂直居中的5种布局方式</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .container{
+                width:250px;
+                height:250px;
+                margin-top:10px;
+                background: beige;
+            }
+
+            /*方式1:position absolute*/
+            .layout1{
+                position: relative;
+            }
+            .layout1 img{
+                position: absolute;
+                left:0;
+                right:0;
+                top:0;
+                bottom:0;
+                margin:auto;
+            }
+            /*方式2 display:flex,aligin-items justify-content */
+            .layout2{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /*方式3：vertical-align 指用来指定inline）或表格单元格（table-cell）元素的垂直对齐方式*/
+            .layout3{
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            /*css3 transform*/
+            .layout4{
+                position: relative;
+            }
+            .layout4 img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        
+        <span>布局1</span>
+        <div class="container layout1">
+            <img src="http://placeholder.qiniudn.com/100x100" />
+        </div>
+
+        <span>布局2</span>
+        <div class="container layout2">
+            <img src="http://placeholder.qiniudn.com/150x100" />
+        </div>
+
+        <span>布局3</span>
+        <div class="container layout3">
+            <img src="http://placeholder.qiniudn.com/90x80" />
+        </div>
+
+        <span>布局4</span>
+        <div class="container layout4">
+            <img src="http://placeholder.qiniudn.com/70x100" />
+        </div>
+    </body>
+</html>

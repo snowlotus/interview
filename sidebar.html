@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>左边固定右边自适应的4种布局方法</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            h1{
+                text-align: center;
+            }
+            header{
+                width:100%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color:beige;
+                background-color: rosybrown;
+            }
+            aside{
+                width: 100px;
+                height: 200px;
+                text-align: center;
+                line-height: 200px;
+                color:beige;
+                background-color:burlywood;
+            }
+            article{
+                
+                background: cadetblue;
+                color:beige;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+            }
+            footer{
+                width:100%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color:darkgray;
+                background-color:cornsilk;
+            }
+            .block1,.block2,.block3,.block4{
+                margin-top:20px;
+            }
+
+           /*方式1:左float，右margin-left为左的宽度 */
+            .block1 aside{
+                float: left;
+            }
+            .block1 article{
+                margin-left:100px;
+            }
+
+            /*方式2:左position:absolute，右margin-left为左的宽度 */
+            .block2{
+                position: relative;
+            }
+            .block2 aside{
+                position: absolute;
+                left:0;
+            }
+            .block2 article{
+                margin-left:100px;
+            }
+            .block2 footer{
+                margin-top:100px;
+            }
+
+            /* 方式3:左右使用display：flex的元素包裹，左普通元素，固定宽度，右设置flex:1*/
+            .content{
+                display: flex;
+            }
+            .block3 article{
+                flex:1;
+            }
+
+            /*方式4:左使用float：left，右使用float：right；右的margin-left为负的左的宽度，
+                且html结构右在左的前面*/
+            .block4 aside{
+                float: left;
+            }
+            .block4 article{
+                float: right;
+                width: 100%;
+                margin-left:-100px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="block1">
+            <h1>方法一</h1>
+            <header>header</header>
+            <aside>siderbar</aside>
+            <article>adaptive content</article>
+            <div style="clear:both"></div>
+            <footer>footer</footer>
+        </div>
+        
+        <div class="block2">
+            <h1>方法二</h1>
+            <header>header</header>
+            <aside>siderbar</aside>
+            <article>adaptive content</article>
+            <footer>footer</footer>
+        </div>
+
+        <div class="block3">
+            <h1>方法三</h1>
+            <header>header</header>
+            <div class="content">
+                <aside>siderbar</aside>
+                <article>adaptive content</article>
+            </div>
+            <footer>footer</footer>
+        </div>
+
+        <div class="block4">
+            <h1>方法四</h1>
+            <header>header</header>
+            
+            <article>adaptive content</article>
+            <aside>siderbar</aside>
+            <div style="clear:both"></div>
+            <footer>footer</footer>
+        </div>
+    </body>
+</html>
